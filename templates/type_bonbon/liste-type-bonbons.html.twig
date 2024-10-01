@@ -16,7 +16,8 @@
 							</tr>
 						</thead>
 						<tbody>
-							{% for type_bonbon in type_bonbons %}
+							{% for type_bonbon in type_bonbons |sort((a, b) =>
+a.type_bonbon <=> b.type_bonbon)%}
 								<tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
 									<td>{{ type_bonbon.designation |
 capitalize }}</td>
