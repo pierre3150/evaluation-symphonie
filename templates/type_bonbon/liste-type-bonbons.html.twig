@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	{{parent()}}Liste de type des bonbons
+{% endblock %}
+{% block body %}
+	<div class="container-fluid">
+		<h1 class="text-center text-primary mt-4 pt-4 display-1 fw-bold">
+			Liste de type des bonbons</h1>
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8 bg-white p-4 m-0 text-primary">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr class="fw-bold text-primary">
+								<th scope="col">Designation</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for type_bonbon in type_bonbons %}
+								<tr class="{{ cycle(['table-primary', 'table-secondary'], loop.index0) }}">
+									<td>{{ type_bonbon.designation |
+capitalize }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
